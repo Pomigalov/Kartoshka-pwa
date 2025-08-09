@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 export default function MyEquipment({owner, data, onSave}){
-  const [form, setForm] = useState({title:'', description:'', pricePerDay:200, address:'', lat:52.232, lng:21.012})
+  const [form, setForm] = useState({title:'', description:'', pricePerDay:200, address:'', lat:55.751, lng:37.617})
   const submit = () => {
     const eq = {
       id: 'e_'+Date.now(),
@@ -16,7 +16,7 @@ export default function MyEquipment({owner, data, onSave}){
       isAvailable: true
     }
     onSave(eq)
-    setForm({title:'', description:'', pricePerDay:200, address:'', lat:52.232, lng:21.012})
+    setForm({title:'', description:'', pricePerDay:200, address:'', lat:55.751, lng:37.617})
     alert('Объявление добавлено (локально).')
   }
 

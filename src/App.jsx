@@ -9,12 +9,12 @@ export default function App(){
   const [user, setUser] = useState(null) // {name, role}
   const [screen, setScreen] = useState('role') // role, map, my
   const [data, setData] = useState(() => {
-    const saved = localStorage.getItem('kartoshka_data')
+    const saved = localStorage.getItem('kartoshka_data_v2')
     return saved ? JSON.parse(saved) : mock
   })
 
   useEffect(()=> {
-    localStorage.setItem('kartoshka_data', JSON.stringify(data))
+    localStorage.setItem('kartoshka_data_v2', JSON.stringify(data))
   }, [data])
 
   useEffect(()=> {

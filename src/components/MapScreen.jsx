@@ -2,10 +2,19 @@ import React, {useState} from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import EquipmentCard from './EquipmentCard'
+import L from 'leaflet'
+
+// Fix Leaflet's default icon paths for Vite
+delete L.Icon.Default.prototype._getIconUrl
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+})
 
 export default function MapScreen({data, onCreateBooking}){
   const [selected, setSelected] = useState(null)
-  const center = [data.equipment[0]?.lat || 52.232, data.equipment[0]?.lng || 21.012]
+  const center = [data.equipment[0]?.lat || 55.751, data.equipment[0]?.lng || 37.617]
 
   return (
     <div>
@@ -18,7 +27,7 @@ export default function MapScreen({data, onCreateBooking}){
         </div>
       </div>
 
-      <MapContainer center={center} zoom={14} scrollWheelZoom style={{height: '50vh'}} className="rounded-lg">
+      <MapContainer center={center} zoom={13} scrollWheelZoom style={{height: '50vh'}} className="rounded-lg">
         <TileLayer
           attribution='&copy; OpenStreetMap contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

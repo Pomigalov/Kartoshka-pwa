@@ -13,7 +13,7 @@ export default function RoleSelect({onChoose}){
       <input className="w-full p-2 border rounded mb-4" placeholder="Ваше имя (необязательно)" value={name} onChange={e=>setName(e.target.value)} />
       <div className="grid grid-cols-2 gap-4">
         <button onClick={()=>choose('renter')} className="p-4 bg-green-500 text-white rounded">Я арендую</button>
-        <button onClick={()=>choose('owner')} className="p-4 bg-blue-500 text-white rounded">Я сдаю</button>
+        <button onClick={()=>choose('owner')} className="p-4 bg-blue-600 text-white rounded">Я сдаю</button>
       </div>
     </div>
   )
